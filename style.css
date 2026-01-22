@@ -1,1 +1,117 @@
 /* --- CONFIGURACIÓN GENERAL --- */
+:root {
+    --bg-color: #f5f2ea; /* El crema del fondo */
+    --primary-color: #801925; /* El bordó de los títulos y botones */
+    --text-color: #4a4a4a; /* Gris oscuro para lecturas */
+    --white: #fff;
+
+    /* Fuentes */
+    --font-heading: 'Playfair Display', serif; /* Títulos elegantes */
+    --font-body: 'Lato', sans-serif; /* Texto normal */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+h1,h2,h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ---- NAVBAR (Fija arriba) ---- */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+/* Control del yamaño del logo */
+.brand-logo img {
+    height: 100px;
+    width: auto;
+    display: block;
+}
+
+.nav-links a {
+    margin-left: 30px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Clase que agregamos con JS al scrollear */
+.navbar.scrolled {
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ---- HERO SECTION (Portada con filtro sepia/rojizo) ---- */
+.hero {
+    height: 100dvh;
+    background-image: url('img/hero.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 20, 20, 0.3);
+    mix-blend-mode: multiply;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--white);
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
